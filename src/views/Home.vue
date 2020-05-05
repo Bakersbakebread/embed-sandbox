@@ -1,18 +1,46 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <TopPageHero />
+    <div class="columns">
+      <div class="column">
+        <MainForm :open="collapseIdOpen == 'basicSettings'" @clicked="childCollapseClicked" />
+        <AuthorSettings :open="collapseIdOpen == 'authorSettings'" @clicked="childCollapseClicked" />
+      </div>
+      <div class="column">
+        <DiscordEmbed />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import TopPageHero from "@/components/Home/TopPageHero.vue";
+import DiscordEmbed from "@/components/Home/DiscordEmbed";
+import MainForm from "@/components/Home/MainForm";
+import AuthorSettings from "@/components/Home/AuthorSettings";
 
 export default {
-  name: 'Home',
+  name: "Home",
+  data() {
+    return {
+      collapseIdOpen: ""
+    };
+  },
   components: {
-    HelloWorld
+    TopPageHero,
+    MainForm,
+    DiscordEmbed,
+    AuthorSettings
+  },
+  methods: {
+    childCollapseClicked(value) {
+      console.log(value);
+      this.collapseIdOpen = value;
+    }
   }
-}
+};
 </script>
+
+<style>
+</style>

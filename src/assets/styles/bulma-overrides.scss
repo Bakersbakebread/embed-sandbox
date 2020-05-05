@@ -1,0 +1,55 @@
+.site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.site-content {
+    flex: 1;
+}
+
+.column {
+    max-width: 520px;
+}
+
+// Set your colors
+$primary: #00b0f4;
+$primary-invert: findColorInvert($primary);
+$twitter: #4099ff;
+$twitter-invert: findColorInvert($twitter);
+$discord-bg-alt: #2f3136;
+$discord-bg-accent: #4f545c;
+$discord-bg-hover: rgba(79, 84, 92, 0.16);
+$scheme-invert: #fff;
+// background
+$scheme-main: $dark;
+$body-background-color: #4f545c;
+$body-color: #dcddde;
+$text: #dcddde;
+$text-secondary: #b9bbbe;
+$dark: #36393e;
+$title-color: #fff;
+$subtitle-color: $text;
+//cards
+$card-color: $text;
+$card-background-color: $dark;
+$card-header-background-color: $dark;
+$card-header-color: #fff;
+//inputs
+$input-background-color: $discord-bg-alt;
+$input-color: $text;
+$input-border-color: $discord-bg-alt;
+$input-hover-border-color: $discord-bg-accent;
+$input-focus-border-color: $discord-bg-hover;
+$input-arrow: $discord-bg-hover;
+$label-color: $text-secondary;
+//navbar
+$navbar-background-color: $body-background-color;
+$navbar-item-color: #fff;
+$navbar-item-hover-background-color: $body-background-color;
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
+$colors: ( "white": ( $white, $black), "black": ( $black, $white), "light": ( $light, $light-invert), "dark": ( $dark, $dark-invert), "primary": ( $primary, $primary-invert), "info": ( $info, $info-invert), "success": ( $success, $success-invert), "warning": ( $warning, $warning-invert), "danger": ( $danger, $danger-invert), "twitter": ( $twitter, $twitter-invert));
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;

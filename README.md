@@ -20,5 +20,13 @@ npm run build
 npm run lint
 ```
 
+### Shoutouts!
+
+https://github.com/maoberlehner/vuex-map-fields
+
+https://saintplay.github.io/vue-swatches
+
+
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
