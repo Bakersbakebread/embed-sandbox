@@ -5,6 +5,7 @@
       <div class="column">
         <MainForm :open="collapseIdOpen == 'basicSettings'" @clicked="childCollapseClicked" />
         <AuthorSettings :open="collapseIdOpen == 'authorSettings'" @clicked="childCollapseClicked" />
+        <FieldSettings :open="collapseIdOpen == 'fieldSettings'" @clicked="childCollapseClicked" />
       </div>
       <div class="column">
         <DiscordEmbed />
@@ -19,6 +20,7 @@ import TopPageHero from "@/components/Home/TopPageHero.vue";
 import DiscordEmbed from "@/components/Home/DiscordEmbed";
 import MainForm from "@/components/Home/MainForm";
 import AuthorSettings from "@/components/Home/AuthorSettings";
+import FieldSettings from "@/components/Home/FieldSettings";
 
 export default {
   name: "Home",
@@ -31,7 +33,8 @@ export default {
     TopPageHero,
     MainForm,
     DiscordEmbed,
-    AuthorSettings
+    AuthorSettings,
+    FieldSettings,
   },
   methods: {
     childCollapseClicked(value) {
