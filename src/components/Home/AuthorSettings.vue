@@ -1,5 +1,12 @@
 <template>
-  <b-collapse class="card" style="margin-top: 1rem" animation="fade" aria-id="authorSettings" :open="open" @open="onClickButton">
+  <b-collapse
+    class="card"
+    style="margin-top: 1rem"
+    animation="fade"
+    aria-id="authorSettings"
+    :open="open"
+    @open="onClickButton"
+  >
     <div
       slot="trigger"
       slot-scope="props"
@@ -13,25 +20,24 @@
       </a>
     </div>
     <div class="card-content">
-      <b-field label="Author Name">
+      <b-field label="Name">
         <b-input v-model="name"></b-input>
       </b-field>
 
-      <b-field label="Author URL">
-        <b-input v-model="url"></b-input>
+      <b-field>
+        <template slot="label">
+          Author URL
+          <https-only-tooltip></https-only-tooltip>
+        </template>
+        <b-input v-model="url" :disabled="authorNameIsEmpty"></b-input>
       </b-field>
 
       <b-field>
         <template slot="label">
           Author icon URL
-          <b-tooltip
-            type="is-dark"
-            label="The source URL for the thumbnail. Only HTTP(S) is supported."
-          >
-            <b-icon size="is-small" icon="help-circle-outline"></b-icon>
-          </b-tooltip>
+          <https-only-tooltip></https-only-tooltip>
         </template>
-        <b-input v-model="icon"></b-input>
+        <b-input v-model="icon_url" :disabled="authorNameIsEmpty"></b-input>
       </b-field>
     </div>
   </b-collapse>
@@ -43,12 +49,16 @@ import { mapFields } from "vuex-map-fields";
 export default {
   name: "AuthorSettings",
   computed: {
-    // When using nested data structures, the string
-    // after the last dot (e.g. `firstName`) is used
-    // for defining the name of the computed property.
-    ...mapFields(["embed.author.name", "embed.author.url", "embed.author.icon"])
+    ...mapFields([
+      "embed.author.name",
+      "embed.author.url",
+      "embed.author.icon_url"
+    ]),
+    authorNameIsEmpty() {
+      return this.name === "";
+    }
   },
-  props:['open'],
+  props: ["open"],
   methods: {
     onClickButton(event) {
       this.$emit("clicked", "authorSettings", event);

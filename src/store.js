@@ -11,14 +11,14 @@ export default new Vuex.Store({
             author: {
                 name: '',
                 url: '',
-                icon: ''
+                icon_url: ''
             },
             description: '',
             url: '',
             thumb_url: '',
             color: '',
             fields: [{ name: '', value: '', inline: false }],
-            footer: '',
+            footer: { text: '', icon_url: '' },
         },
         user_settings: {
             username: '',

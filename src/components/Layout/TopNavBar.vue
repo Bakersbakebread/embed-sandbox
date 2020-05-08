@@ -1,19 +1,7 @@
 <template>
-  <b-navbar>
-    <template slot="brand">    </template>
-    <template slot="start"></template>
-
-    <template slot="end">
-      <b-navbar-item tag="div">
-        <div class="buttons">
-          <a class="button is-dark" href="https://github.com/bakersbakebread/embedsandbox">
-            <b-icon icon="github-circle"></b-icon>
-            <span>Look under the hood</span>
-          </a>
-        </div>
-      </b-navbar-item>
-    </template>
-  </b-navbar>
+  <div class="beta-notification has-background-primary">
+    ALPHA
+  </div>
 </template>
 
 <script>
@@ -21,3 +9,21 @@ export default {
   name: "TopNavBar"
 };
 </script>
+
+<style scoped>
+.beta-notification {
+  position: fixed;
+  width: 80px;
+  height: 25px;
+  top: 7px;
+  left: -20px;
+  text-align: center;
+  font-size: 13px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  line-height: 27px;
+  transform:rotate(-45deg);
+}
+</style>

@@ -4,25 +4,22 @@
       <p class="card-header-title">Code Preview</p>
     </div>
     <div class="card-content">
-      <button class="button is-dark">
-        <b-icon icon="json"></b-icon>
-        <span>Json</span>
-      </button>
-      <button class="button is-dark" >
-        <b-icon icon="language-python"></b-icon>
-        <span>Python</span>
-      </button>
-      <button class="button is-dark">
-        <b-icon icon="link-variant spin"></b-icon>
-        <span>Pastebin</span>
-      </button>
+      <b-button tag="router-link" icon-left="json" to="/code" class="button is-dark">
+        Json
+      </b-button>
+      <b-button tag="router-link" icon-left="language-python" to="/code" class="button is-dark" >
+        Python
+      </b-button>
+      <b-button tag="router-link" icon-left="link-variant" to="/code" class="button is-dark">
+        Pastebin
+      </b-button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "CodePreview"
+  name: "CodePreview",
 };
 </script>
 

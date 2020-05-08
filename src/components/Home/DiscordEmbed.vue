@@ -2,6 +2,10 @@
   <div class="card">
     <div class="card-header">
       <p class="card-header-title">Embed Preview</p>
+      <router-link class="card-header-icon" to="/code">
+        <b-icon icon="code-tags"></b-icon>
+        <span>View as code</span>
+      </router-link>
     </div>
     <div class="card-content">
       <div class="wrapper">
@@ -12,33 +16,43 @@
                 <a href="#">{{embed.title}}</a>
               </div>
 
-              <div class="embed-title embed-margin" v-if="embed.title && !embed.url">{{embed.title}}</div>
-
-              <div class="embed-author" v-if="embed.author">
-                <img class="embed-author-icon" :src="embed.author.icon" v-if="embed.author.icon" />
+              <div class="embed-author embed-margin" v-if="embed.author.name">
+                <img
+                  class="embed-author-icon"
+                  :src="embed.author.icon_url"
+                  v-if="embed.author.icon_url"
+                />
                 <a class="embed-author-name" :href="embed.author.url">{{embed.author.name}}</a>
               </div>
+
+              <div class="embed-title embed-margin" v-if="embed.title && !embed.url">{{embed.title}}</div>
 
               <div class="embed-description embed-margin" v-if="embed.description">
                 <vue-simple-markdown :source="embed.description"></vue-simple-markdown>
               </div>
               <div class="fields" v-if="embed.fields">
-              <div
-                v-for="(field, index) in embed.fields"
-                :key="index"
-                :class="'field ' + (field.inline ? 'inline' : '')"
-                :style="{gridColumn: getFieldWidth(field, index)}"
-              >
-                <div class="field-name">{{ field.name }}</div>
-                <div class="field-value">{{ field.value }}</div>
+                <div
+                  v-for="(field, index) in embed.fields"
+                  :key="index"
+                  :class="'field ' + (field.inline ? 'inline' : '')"
+                  :style="{gridColumn: getFieldWidth(field, index)}"
+                >
+                  <div class="field-name">{{ field.name }}</div>
+                  <div class="field-value">{{ field.value }}</div>
+                </div>
               </div>
-            </div>
+
+              <div class="embed-footer" v-if="embed.footer.text">
+                <img
+                  class="embed-footer-icon"
+                  :src="embed.footer.icon_url"
+                  v-if="embed.footer.icon_url"
+                />
+                {{embed.footer.text}}
+              </div>
             </div>
 
             <img class="embed-thumb" :src="embed.thumb_url" v-if="embed.thumb_url" />
-
-            
-
           </div>
         </div>
       </div>
@@ -49,31 +63,21 @@
 <script>
 export default {
   name: "DiscordEmbed",
-  // components: { VueMarkdown },
   computed: {
     embed() {
       return this.$store.state.embed;
-    },
-    d() {
-      return `Lucario is running on \`1\` shard.
-Serving \`9\` servers (663 channels).
-For a total of 47,307 users (46,865 unique).
-(47,307 visible now, 47,307 total)`;
     }
   },
   methods: {
     getFieldWidth(field, fieldIndex) {
-      console.log('starting...')
+      console.log("starting...");
       const FIELD_GRID_SIZE = 12;
       const MAX_FIELDS_PER_ROW = 3;
 
       if (!field.inline) return `1 / ${FIELD_GRID_SIZE + 1}`;
 
       let startingField = fieldIndex;
-      while (
-        startingField > 0 &&
-        this.embed.fields[startingField - 1].inline
-      ) {
+      while (startingField > 0 && this.embed.fields[startingField - 1].inline) {
         startingField -= 1;
       }
 

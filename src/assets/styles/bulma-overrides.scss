@@ -8,10 +8,6 @@
     flex: 1;
 }
 
-.column {
-    max-width: 520px;
-}
-
 // Set your colors
 $primary: rgb(114, 137, 218);
 $primary-invert: findColorInvert($primary);
@@ -25,26 +21,35 @@ $blurple: #7289DA;
 $discord-bg-primary: #36393f;
 $discord-bg-secondary: #2f3136;
 $discord-bg-secondary-alt: #292b2f;
+$success: #43b581;
 // background
+$dark: #2f3136;
 $scheme-main: $dark;
-$body-background-color: $discord-bg-primary;
+$body-background-color: #202225;
 $body-color: #dcddde;
 $text: #dcddde;
 $text-secondary: #b9bbbe;
-$dark: #2f3136;
 $title-color: #fff;
 $subtitle-color: $text;
 //cards
 $card-color: $text;
-$card-background-color: $discord-bg-secondary;
+$card-background-color: $discord-bg-primary;
 $card-header-background-color: $discord-bg-secondary-alt;
 $card-header-color: #fff;
+$card-footer-border-top: 1px solid$discord-bg-primary;
 .card-header-title {
     line-height: 20px;
+    font-weight: 500 !important;
 }
 
 //inputs
 $input-background-color :#40444b;
+$input-disabled-background-color: #40444b;
+$input-disabled-border-color: transparent;
+input:disabled {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAKrVq36zwjjgzhhYWGMYAEYB8RmROaABADeOQ8CXl/xfgAAAABJRU5ErkJggg==) repeat;
+}
+
 $input-color: $text;
 $input-border-color: $discord-bg-alt;
 $input-hover-border-color: $discord-bg-accent;
@@ -59,5 +64,12 @@ $navbar-item-hover-background-color: $body-background-color;
 $colors: ( "white": ( $white, $black), "black": ( $black, $white), "light": ( $light, $light-invert), "dark": ( $dark, $dark-invert), "primary": ( $primary, $primary-invert), "info": ( $info, $info-invert), "success": ( $success, $success-invert), "warning": ( $warning, $warning-invert), "danger": ( $danger, $danger-invert), "twitter": ( $twitter, $twitter-invert));
 // Links
 $link: $primary;
-$link-invert: $primary-invert;
+$link-invert: $text;
+$link-hover: $text;
 $link-focus-border: $primary;
+//buttons
+$button-text-hover-background-color: $primary;
+$button-text-hover-color: #fff;
+.button.is-text {
+    text-decoration: none !important;
+}

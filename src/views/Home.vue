@@ -4,12 +4,13 @@
     <div class="columns">
       <div class="column">
         <MainForm :open="collapseIdOpen == 'basicSettings'" @clicked="childCollapseClicked" />
+        <FooterSettings :open="collapseIdOpen == 'footerSettings'" @clicked="childCollapseClicked"/>
         <AuthorSettings :open="collapseIdOpen == 'authorSettings'" @clicked="childCollapseClicked" />
         <FieldSettings :open="collapseIdOpen == 'fieldSettings'" @clicked="childCollapseClicked" />
       </div>
       <div class="column">
         <DiscordEmbed />
-        <CodePreview />
+        <!-- <CodePreview /> -->
       </div>
     </div>
   </div>
@@ -22,7 +23,8 @@ import DiscordEmbed from "@/components/Home/DiscordEmbed";
 import MainForm from "@/components/Home/MainForm";
 import AuthorSettings from "@/components/Home/AuthorSettings";
 import FieldSettings from "@/components/Home/FieldSettings";
-import CodePreview from "@/components/Home/CodePreview";
+import FooterSettings from "@/components/Home/FooterSettings";
+// import CodePreview from "@/components/Home/CodePreview";
 
 export default {
   name: "Home",
@@ -37,7 +39,8 @@ export default {
     DiscordEmbed,
     AuthorSettings,
     FieldSettings,
-    CodePreview
+    FooterSettings
+    // CodePreview
   },
   methods: {
     childCollapseClicked(value) {

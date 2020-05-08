@@ -102,11 +102,25 @@ pre {
     background-color: inherit !important;
     padding: 0 !important;
     margin-top: 6px;
+    white-space: pre-wrap;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    margin-top: 6px;
+    background-clip: border-box;
 }
 
 code {
     background: #202225 !important;
     color: #dcddde !important;
+}
+
+pre code {
+    font-family: Consolas, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Monaco, Courier New, Courier, monospace;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    text-indent: 0;
+    white-space: pre-wrap;
 }
 
 .wrapper {
@@ -161,11 +175,26 @@ code {
 }
 
 .embed .embed-footer {
-    font-size: 12px;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 400;
+    color: #72767d;
+    display: flex;
+    align-items: center;
+    grid-row: auto/auto;
+    grid-column: 1/1;
 }
 
 .embed .embed-footer span {
     color: rgba(255, 255, 255, 0.6);
+}
+
+.embed-footer-icon {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    border-radius: 50%;
 }
 
 .embed .embed-inner .embed-title {
@@ -173,6 +202,7 @@ code {
     font-weight: 600;
     display: inline-block;
     grid-column: 1/1;
+    color: white;
 }
 
 .embed .embed-inner .embed-author {
