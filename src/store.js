@@ -17,7 +17,7 @@ export default new Vuex.Store({
             url: '',
             thumb_url: '',
             color: '',
-            fields: [{}],
+            fields: [{ name: '', value: '', inline: false }],
             footer: '',
         },
         user_settings: {
@@ -29,5 +29,18 @@ export default new Vuex.Store({
     },
     mutations: {
         updateField,
+        addField(state, field) {
+            // mutate state
+            state.embed.fields.push(field)
+        },
+        moveFieldUp(state, index) {
+            state.embed.fields.splice(index - 1, 0, state.embed.fields.splice(index, 1)[0])
+        },
+        moveFieldDown(state, index) {
+            state.embed.fields.splice(index + 1, 0, state.embed.fields.splice(index, 1)[0])
+        },
+        deleteField(state, index) {
+            state.embed.fields.splice(state.embed.fields.indexOf(index), 1);
+        }
     },
 })

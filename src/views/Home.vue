@@ -9,6 +9,7 @@
       </div>
       <div class="column">
         <DiscordEmbed />
+        <CodePreview />
       </div>
     </div>
   </div>
@@ -21,6 +22,7 @@ import DiscordEmbed from "@/components/Home/DiscordEmbed";
 import MainForm from "@/components/Home/MainForm";
 import AuthorSettings from "@/components/Home/AuthorSettings";
 import FieldSettings from "@/components/Home/FieldSettings";
+import CodePreview from "@/components/Home/CodePreview";
 
 export default {
   name: "Home",
@@ -35,6 +37,7 @@ export default {
     DiscordEmbed,
     AuthorSettings,
     FieldSettings,
+    CodePreview
   },
   methods: {
     childCollapseClicked(value) {

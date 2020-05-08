@@ -14,31 +14,23 @@
       role="button"
       aria-controls="authorSettings"
     >
-      <p class="card-header-title">Author Settings</p>
+      <p class="card-header-title">Field settings</p>
       <a class="card-header-icon">
         <b-icon :icon="props.open ? 'arrow-up' : 'arrow-down'"></b-icon>
       </a>
     </div>
     <div class="card-content">
-      <b-field grouped>
-        <b-field label="Author Name">
-          <b-input v-model="name"></b-input>
-        </b-field>
-        <div class="field">
-          <b-switch :value="true" type="is-success">Success</b-switch>
-        </div>
-      </b-field>
-      <b-field label="Value">
-        <b-input v-model="url" text-area></b-input>
-      </b-field>
+      <DiscordEmbedField/>
     </div>
   </b-collapse>
 </template>
 
 <script>
+import DiscordEmbedField from '@/components/Form/DiscordEmbedField'
 export default {
   name: "FieldSettings",
   props: ["open"],
+  components: {DiscordEmbedField},
   methods: {
     onClickButton(event) {
       this.$emit("clicked", "fieldSettings", event);

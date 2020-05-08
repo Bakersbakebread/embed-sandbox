@@ -202,52 +202,32 @@ code {
 }
 
 .embed .embed-inner .fields {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    box-lines: miltiple;
-    margin-top: -10px;
-}
-
-.embed .embed-inner .fields .field {
-    -webkit-box-flex: 0;
-    -ms-flex: 0;
-    flex: 0;
-    box-flex: 1;
-    padding-top: 10px;
-    max-width: 506px;
-    min-width: 100%;
+    display: grid;
+    margin-top: 8px;
+    grid-gap: 8px;
 }
 
 .embed .embed-inner .fields .field.inline {
-    box-flex: 1;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    min-width: 150px;
-    -ms-flex-preferred-size: auto;
-    flex-basis: auto;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    min-width: 0;
 }
 
 .embed .embed-inner .fields .field .field-name {
-    color: #fff;
-    font-size: 14px;
-    margin-bottom: 4px;
-    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    min-width: 0;
+    color: #72767d;
+    font-weight: 500;
+    margin-bottom: 2px;
+    unicode-bidi: plaintext;
 }
 
 .embed .embed-inner .fields .field .field-value {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.1em;
-    white-space: pre-wrap;
-    margin-top: 6px;
-    word-wrap: break-word;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+    white-space: pre-line;
+    min-width: 0;
 }

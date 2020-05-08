@@ -7,7 +7,7 @@
       role="button"
       aria-controls="authorSettings"
     >
-      <p class="card-header-title">Author Settings</p>
+      <p class="card-header-title">Author settings</p>
       <a class="card-header-icon">
         <b-icon :icon="props.open ? 'arrow-up' : 'arrow-down'"></b-icon>
       </a>

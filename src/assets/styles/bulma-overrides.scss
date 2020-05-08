@@ -13,7 +13,7 @@
 }
 
 // Set your colors
-$primary: #00b0f4;
+$primary: rgb(114, 137, 218);
 $primary-invert: findColorInvert($primary);
 $twitter: #4099ff;
 $twitter-invert: findColorInvert($twitter);
@@ -21,22 +21,30 @@ $discord-bg-alt: #2f3136;
 $discord-bg-accent: #4f545c;
 $discord-bg-hover: rgba(79, 84, 92, 0.16);
 $scheme-invert: #fff;
+$blurple: #7289DA;
+$discord-bg-primary: #36393f;
+$discord-bg-secondary: #2f3136;
+$discord-bg-secondary-alt: #292b2f;
 // background
 $scheme-main: $dark;
-$body-background-color: #4f545c;
+$body-background-color: $discord-bg-primary;
 $body-color: #dcddde;
 $text: #dcddde;
 $text-secondary: #b9bbbe;
-$dark: #36393e;
+$dark: #2f3136;
 $title-color: #fff;
 $subtitle-color: $text;
 //cards
 $card-color: $text;
-$card-background-color: $dark;
-$card-header-background-color: $dark;
+$card-background-color: $discord-bg-secondary;
+$card-header-background-color: $discord-bg-secondary-alt;
 $card-header-color: #fff;
+.card-header-title {
+    line-height: 20px;
+}
+
 //inputs
-$input-background-color: $discord-bg-alt;
+$input-background-color :#40444b;
 $input-color: $text;
 $input-border-color: $discord-bg-alt;
 $input-hover-border-color: $discord-bg-accent;
