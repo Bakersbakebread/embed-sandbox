@@ -12,7 +12,11 @@
           v-clipboard:success="onCopy"
           v-clipboard:error="onError"
         >Copy All</b-button>
-        <b-button tag="router-link" icon-left="link-variant" to="/code" type="is-dark">Send to paste</b-button>
+        <b-button
+          icon-left="link-variant"
+          @click="soon()"
+          type="is-dark"
+        >Send to paste</b-button>
       </a>
     </div>
     <div class="card-content">
@@ -35,6 +39,13 @@ export default {
     },
     onError: function(e) {
       alert("Failed to copy texts" + e);
+    },
+    soon() {
+      this.$buefy.notification.open({
+        message: `Soon...™`,
+        position: "is-top",
+        type: "is-primary"
+      });
     }
   }
 };
