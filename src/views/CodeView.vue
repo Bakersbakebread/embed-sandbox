@@ -13,7 +13,7 @@
     </div>
 
     <CodeBlock language="Json" :sourceCode="prettyPrintedJson" />
-    <CodeBlock language="Python" :sourceCode="prettyPrintedPython"/>
+    <CodeBlock language="Python" :sourceCode="prettyPrintedPython" />
     <CodeBlock />
   </div>
 </template>
@@ -21,8 +21,32 @@
 <script>
 import TopPageHeader from "@/components/Layout/TopPageHeader";
 import CodeBlock from "@/components/Layout/CodeBlock";
-import {getPythonPrettyPrinted} from "@/utils/language-python.js"
+import { getPythonPrettyPrinted } from "@/utils/language-python.js";
 
+/* eslint-disable */
+function removeEmptyStrings(key, value) {
+  if (key == "author" || key == "footer") {
+    for (let [k, v] of Object.entries(value)) {
+      if (v == "") {
+        return undefined;
+      }
+    }
+  }
+  if (key == "fields") {
+    for (let [k, v] of Object.entries(value)) {
+      for (let [dk, dv] of Object.entries(v)) {
+        if (dv == "") {
+          return undefined;
+        }
+      }
+    }
+  }
+  if (value == "") {
+    return undefined;
+  } else {
+    return value;
+  }
+}
 
 export default {
   name: "JsonView",
@@ -32,12 +56,11 @@ export default {
       return this.$store.state.embed;
     },
     prettyPrintedJson() {
-      return  JSON.stringify(this.embed, undefined, 4);
+      return JSON.stringify(this.embed, removeEmptyStrings, 4);
     },
-    prettyPrintedPython(){
+    prettyPrintedPython() {
       var pythonCode = getPythonPrettyPrinted(this.embed);
       let printed = pythonCode;
-      console.log(printed)
       return printed;
     }
   }
