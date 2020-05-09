@@ -19,8 +19,8 @@
       </a>
     </div>
     <div class="card-content">
-      <b-field label="Title">
-        <b-input v-model="title"></b-input>
+      <b-field label="Title" :type="$v.title.$invalid ? 'is-danger' : ''" :message="$v.title.$invalid ? 'Title can only be 256 characters' : ''">
+        <b-input v-model="title"  maxlength="256"></b-input>
       </b-field>
 
       <b-field label="Description">
@@ -68,6 +68,7 @@
 import { mapFields } from "vuex-map-fields";
 import VSwatches from "vue-swatches";
 import "vue-swatches/dist/vue-swatches.css";
+import { maxLength } from "vuelidate/lib/validators";
 
 export default {
   name: "MainForm",
@@ -89,15 +90,20 @@ export default {
     onClickButton(event) {
       this.$emit("clicked", "basicSettings", event);
     }
+  },
+  validations: {
+    title: {
+      maxLength: maxLength(256)
+    }
   }
 };
 </script>
 <style>
-.swatches-overide{
+.swatches-overide {
   background: none;
   border: none;
 }
-.vue-swatches__fallback__wrapper{
+.vue-swatches__fallback__wrapper {
   padding: 0px !important;
   margin: 0px !important;
 }

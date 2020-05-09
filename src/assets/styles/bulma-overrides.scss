@@ -34,9 +34,13 @@ $subtitle-color: $text;
 //cards
 $card-color: $text;
 $card-background-color: $discord-bg-primary;
-$card-header-background-color: $discord-bg-secondary-alt;
+$card-header-background-color: $discord-bg-primary;
 $card-header-color: #fff;
 $card-footer-border-top: 1px solid$discord-bg-primary;
+.card-header {
+    border-bottom: solid 3px $discord-bg-secondary;
+}
+
 .card-header-title {
     line-height: 20px;
     font-weight: 500 !important;

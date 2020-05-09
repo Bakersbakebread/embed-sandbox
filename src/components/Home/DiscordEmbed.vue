@@ -8,7 +8,7 @@
       </router-link>
     </div>
     <div class="card-content">
-      <div class="wrapper">
+      <div class="wrapper" style="margin: 0 auto;">
         <div class="embed" :style="{ borderLeft: 'solid 4px' + embed.color }">
           <div class="card-block">
             <div class="embed-inner">
@@ -57,6 +57,17 @@
         </div>
       </div>
     </div>
+    <footer class="card-footer">
+      <p
+        class="card-footer-item"
+        :class="characterLimitColor"
+        style="justify-content: flex-end !important;"
+      >
+        {{remainingCharacters}} / 6000 characters
+        <b-icon icon="information" type="is-warning" v-if="characterLimitIcon == 'warning'"></b-icon>
+        <b-icon icon="information" type="is-danger" v-if="characterLimitIcon == 'danger'"></b-icon>
+      </p>
+    </footer>
   </div>
 </template>
 
@@ -66,8 +77,27 @@ export default {
   computed: {
     embed() {
       return this.$store.state.embed;
+    },
+    characterLimitColor() {
+      if (this.remainingCharacters > 5000) {
+        return "has-text-danger";
+      }
+      if (this.remainingCharacters > 4000) {
+        return "has-text-warning";
+      }
+      return "";
+    },
+    characterLimitIcon() {
+      if (this.remainingCharacters > 5000) {
+        return 'danger';
+      }
+      if (this.remainingCharacters > 4000) {
+        return 'warning';
+      }
+      return "";
     }
   },
+  props: ["remainingCharacters"],
   methods: {
     getFieldWidth(field, fieldIndex) {
       console.log("starting...");
