@@ -3,7 +3,7 @@
       <h1 class="has-text-centered has-text-white">
         Discord embed sandbox
       </h1>
-      <p class="subtitle">
+      <p class="subtitle has-text-centered">
         Generate your embeds, play around with how they look - even send them straight to a channel via <router-link to="/about">webhook.</router-link>
       </p>
   </section>
