@@ -12,7 +12,7 @@
         v-if="!errors && characters != 0"
       >Back to editor</b-button>
     </div>
-    <div v-if="!errors && characters != 0">
+    <div v-if="!errors && characters != 0 && errors != undefined">
       <CodeBlock language="Json" :sourceCode="prettyPrintedJson" />
       <CodeBlock language="Python" :sourceCode="prettyPrintedPython" />
       <CodeBlock />
