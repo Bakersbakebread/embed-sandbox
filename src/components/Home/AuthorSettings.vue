@@ -20,11 +20,16 @@
       </a>
     </div>
     <div class="card-content">
-      <b-field label="Name">
-        <b-input v-model="name"></b-input>
+      <b-field
+        label="Name"
+      >
+        <b-input v-model="name" maxlength="256"></b-input>
       </b-field>
 
-      <b-field>
+      <b-field
+        :type="v.embed.author.url.$invalid ? 'is-danger' : ''"
+        :message="v.embed.author.url.$invalid ? 'Invalid URL, only https is supported.' : ''"
+      >
         <template slot="label">
           Author URL
           <https-only-tooltip></https-only-tooltip>
@@ -32,7 +37,10 @@
         <b-input v-model="url" :disabled="authorNameIsEmpty"></b-input>
       </b-field>
 
-      <b-field>
+      <b-field
+        :type="v.embed.author.icon_url.$invalid ? 'is-danger' : ''"
+        :message="v.embed.author.icon_url.$invalid ? 'Invalid URL, only https is supported.' : ''"
+      >
         <template slot="label">
           Author icon URL
           <https-only-tooltip></https-only-tooltip>
@@ -58,7 +66,7 @@ export default {
       return this.name === "";
     }
   },
-  props: ["open"],
+  props: ["open", "v"],
   methods: {
     onClickButton(event) {
       this.$emit("clicked", "authorSettings", event);
