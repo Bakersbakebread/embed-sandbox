@@ -45,7 +45,7 @@
                 <img
                   class="embed-footer-icon"
                   :src="embed.footer.icon_url"
-                  v-if="isValidFooterIcon"
+                  v-if="isValidProperty(embed.footer.icon_url, v.embed.footer.icon_url)"
                 />
                 {{embed.footer.text}}
               </div>

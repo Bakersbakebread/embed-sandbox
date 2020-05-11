@@ -14,7 +14,7 @@
           @clicked="childCollapseClicked"
           :v="$v"
         />
-        <FooterSettings :open="collapseIdOpen == 'footerSettings'" @clicked="childCollapseClicked" />
+        <FooterSettings :open="collapseIdOpen == 'footerSettings'" @clicked="childCollapseClicked" :v="$v"/>
       </div>
       <div class="column">
         <DiscordEmbed :remainingCharacters="totalCharacters" :v="$v" />
@@ -94,6 +94,11 @@ export default {
       thumb_url: {
         httpsUrlRegex
       },
+      footer:{
+        icon_url:{
+          httpsUrlRegex
+        }
+      }
     }
   }
 };

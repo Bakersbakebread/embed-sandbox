@@ -1,5 +1,12 @@
 <template>
-  <b-collapse class="card" style="margin-top: 1rem" animation="fade" aria-id="authorSettings" :open="open" @open="onClickButton">
+  <b-collapse
+    class="card"
+    style="margin-top: 1rem"
+    animation="fade"
+    aria-id="authorSettings"
+    :open="open"
+    @open="onClickButton"
+  >
     <div
       slot="trigger"
       slot-scope="props"
@@ -14,10 +21,13 @@
     </div>
     <div class="card-content">
       <b-field label="Footer text">
-        <b-input v-model="text" ></b-input>
+        <b-input v-model="text"></b-input>
       </b-field>
 
-      <b-field>
+      <b-field
+        :type="v.embed.footer.icon_url.$invalid ? 'is-danger' : ''"
+        :message="v.embed.footer.icon_url.$invalid ? 'Invalid URL, only https is supported.' : ''"
+      >
         <template slot="label">
           Icon URL
           <https-only-tooltip></https-only-tooltip>
@@ -36,7 +46,7 @@ export default {
   computed: {
     ...mapFields(["embed.footer.text", "embed.footer.icon_url"])
   },
-  props:['open'],
+  props: ["open", "v"],
   methods: {
     onClickButton(event) {
       this.$emit("clicked", "footerSettings", event);
