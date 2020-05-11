@@ -68,28 +68,30 @@ export default {
 
 <style>
 .field-forms {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-areas: 
+  "name name name inline"
+  "value value value value"
+  "buttons buttons buttons buttons";
   padding-bottom: 3rem;
 }
 .value {
-  flex-grow: 1;
+  grid-area: "value";
 }
 .field-name {
-  flex-grow: 1;
+  grid-area: name;
 }
 .field-inline {
-  margin-left: auto;
-  padding-left: 1rem;
-  margin-top: auto;
+  grid-area: inline;
+  margin: 0 auto;
+  align-self: center;
+  padding-bottom: 1rem;
 }
 .field-value {
-  width: 100%;
+  grid-area: value;
 }
 .btn-group {
-  margin: 0 auto;
-  display: flex;
+  grid-area: buttons;
   justify-content: center;
-  width: 100%;
 }
 </style>
