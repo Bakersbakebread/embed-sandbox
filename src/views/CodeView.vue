@@ -9,12 +9,27 @@
         icon-left="keyboard-backspace"
         to="/"
         type="is-primary"
+        v-if="!errors && characters != 0"
       >Back to editor</b-button>
     </div>
-
-    <CodeBlock language="Json" :sourceCode="prettyPrintedJson" />
-    <CodeBlock language="Python" :sourceCode="prettyPrintedPython" />
-    <CodeBlock />
+    <div v-if="!errors && characters != 0">
+      <CodeBlock language="Json" :sourceCode="prettyPrintedJson" />
+      <CodeBlock language="Python" :sourceCode="prettyPrintedPython" />
+      <CodeBlock />
+    </div>
+    <section v-else class="has-text-centered">
+      <div
+        class="notification is-danger"
+      >
+      <span v-if="characters > 0">There are errors in your embed, correct them before viewing as code.</span>
+      <span v-else>You must enter something to view it as code... ¯\_(ツ)_/¯</span></div>
+      <b-button
+        tag="router-link"
+        icon-left="keyboard-backspace"
+        to="/"
+        type="is-primary"
+      >Back to editor</b-button>
+    </section>
   </div>
 </template>
 
@@ -51,6 +66,7 @@ function removeEmptyStrings(key, value) {
 export default {
   name: "JsonView",
   components: { TopPageHeader, CodeBlock },
+  props: ["errors", "characters"],
   computed: {
     embed() {
       return this.$store.state.embed;
@@ -62,7 +78,7 @@ export default {
       var pythonCode = getPythonPrettyPrinted(this.embed);
       let printed = pythonCode;
       return printed;
-    }
+    },
   }
 };
 </script>

@@ -8,7 +8,9 @@ import VuePageTransition from 'vue-page-transition';
 import VueSimpleMarkdown from 'vue-simple-markdown';
 import VueHighlightJS from 'vue-highlightjs';
 import VueClipboard from 'vue-clipboard2';
+import Vuelidate from 'vuelidate';
 
+Vue.use(Vuelidate)
 Vue.use(VueClipboard)
 Vue.use(VueHighlightJS)
 Vue.use(Buefy)
@@ -24,5 +26,6 @@ Vue.config.productionTip = false
 new Vue({
     store,
     router,
+    validations: {},
     render: h => h(App)
 }).$mount('#app')

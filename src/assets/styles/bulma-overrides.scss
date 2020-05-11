@@ -6,6 +6,7 @@
 
 .site-content {
     flex: 1;
+    z-index: 9999;
 }
 
 // Set your colors
@@ -22,6 +23,7 @@ $discord-bg-primary: #36393f;
 $discord-bg-secondary: #2f3136;
 $discord-bg-secondary-alt: #292b2f;
 $success: #43b581;
+$danger: rgb(240, 71, 71);
 // background
 $dark: #2f3136;
 $scheme-main: $dark;
@@ -34,9 +36,13 @@ $subtitle-color: $text;
 //cards
 $card-color: $text;
 $card-background-color: $discord-bg-primary;
-$card-header-background-color: $discord-bg-secondary-alt;
+$card-header-background-color: $discord-bg-primary;
 $card-header-color: #fff;
 $card-footer-border-top: 1px solid$discord-bg-primary;
+.card-header {
+    border-bottom: solid 3px $discord-bg-secondary;
+}
+
 .card-header-title {
     line-height: 20px;
     font-weight: 500 !important;
