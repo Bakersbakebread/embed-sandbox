@@ -22,7 +22,8 @@ const routes = [{
         path: '/code',
         name: 'Code preview',
         component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/CodeView.vue')
+            import ( /* webpackChunkName: "about" */ '../views/CodeView.vue'),
+        props: true
     }
 ]
 

@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header">
       <p class="card-header-title">Embed Preview</p>
-      <router-link class="card-header-icon" to="/code">
+      <router-link class="card-header-icon" :to="{name: 'Code preview', params: {errors: v.embed.$invalid, characters: remainingCharacters} }">
         <b-icon icon="code-tags"></b-icon>
         <span>View as code</span>
       </router-link>
