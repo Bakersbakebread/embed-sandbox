@@ -8,13 +8,21 @@
           @clicked="childCollapseClicked"
           :v="$v"
         />
-        <AuthorSettings :open="collapseIdOpen == 'authorSettings'" @clicked="childCollapseClicked" />
+        <AuthorSettings
+          :open="collapseIdOpen == 'authorSettings'"
+          @clicked="childCollapseClicked"
+          :v="$v"
+        />
         <FieldSettings
           :open="collapseIdOpen == 'fieldSettings'"
           @clicked="childCollapseClicked"
           :v="$v"
         />
-        <FooterSettings :open="collapseIdOpen == 'footerSettings'" @clicked="childCollapseClicked" :v="$v"/>
+        <FooterSettings
+          :open="collapseIdOpen == 'footerSettings'"
+          @clicked="childCollapseClicked"
+          :v="$v"
+        />
       </div>
       <div class="column">
         <DiscordEmbed :remainingCharacters="totalCharacters" :v="$v" />
@@ -94,12 +102,23 @@ export default {
       thumb_url: {
         httpsUrlRegex
       },
-      footer:{
-        icon_url:{
+      footer: {
+        icon_url: {
           httpsUrlRegex
         },
         text: {
-          maxLength : maxLength(2048)
+          maxLength: maxLength(2048)
+        }
+      },
+      author: {
+        name: {
+          maxLength: maxLength(256)
+        },
+        url: {
+          httpsUrlRegex
+        },
+        icon_url: {
+          httpsUrlRegex
         }
       }
     }
