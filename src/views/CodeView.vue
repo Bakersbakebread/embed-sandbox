@@ -9,7 +9,7 @@
         icon-left="keyboard-backspace"
         to="/"
         type="is-primary"
-        v-if="!errors && characters != 0"
+        v-if="!errors && characters != 0 && errors != undefined"
       >Back to editor</b-button>
     </div>
     <div v-if="!errors && characters != 0 && errors != undefined">
