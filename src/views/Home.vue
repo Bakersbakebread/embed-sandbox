@@ -3,13 +3,21 @@
     <TopPageHero />
     <div class="columns">
       <div class="column">
-        <MainForm :open="collapseIdOpen == 'basicSettings'" @clicked="childCollapseClicked" />
-        <FooterSettings :open="collapseIdOpen == 'footerSettings'" @clicked="childCollapseClicked" />
+        <MainForm
+          :open="collapseIdOpen == 'basicSettings'"
+          @clicked="childCollapseClicked"
+          :v="$v"
+        />
         <AuthorSettings :open="collapseIdOpen == 'authorSettings'" @clicked="childCollapseClicked" />
-        <FieldSettings :open="collapseIdOpen == 'fieldSettings'" @clicked="childCollapseClicked" />
+        <FieldSettings
+          :open="collapseIdOpen == 'fieldSettings'"
+          @clicked="childCollapseClicked"
+          :v="$v"
+        />
+        <FooterSettings :open="collapseIdOpen == 'footerSettings'" @clicked="childCollapseClicked" />
       </div>
       <div class="column">
-        <DiscordEmbed :remainingCharacters="totalCharacters" />
+        <DiscordEmbed :remainingCharacters="totalCharacters" :v="$v" />
       </div>
     </div>
   </div>
@@ -23,7 +31,8 @@ import MainForm from "@/components/Home/MainForm";
 import AuthorSettings from "@/components/Home/AuthorSettings";
 import FieldSettings from "@/components/Home/FieldSettings";
 import FooterSettings from "@/components/Home/FooterSettings";
-// import CodePreview from "@/components/Home/CodePreview";
+import { httpsUrlRegex } from "@/utils/validators.js";
+import { maxLength } from "vuelidate/lib/validators";
 
 export default {
   name: "Home",
@@ -69,6 +78,22 @@ export default {
       ];
 
       return lengths.reduce((a, b) => a + b, 0);
+    }
+  },
+  validations: {
+    embed: {
+      title: {
+        maxLength: maxLength(256)
+      },
+      description: {
+        maxLength: maxLength(2048)
+      },
+      url: {
+        httpsUrlRegex
+      },
+      thumb_url: {
+        httpsUrlRegex
+      },
     }
   }
 };

@@ -2,15 +2,15 @@
   <div>
     <div v-for="(field, index) in fields" :key="index" class="field-forms">
       <b-field :label="'Field ' + (index + 1) + ' name'" class="field-name">
-        <b-input v-model="field.name"></b-input>
+        <b-input v-model="field.name" maxlength="256"></b-input>
       </b-field>
 
       <div class="field field-inline">
-        <b-switch v-model="field.inline" type="is-success" style="margin-top: 1rem;">Inline</b-switch>
+        <b-switch v-model="field.inline" type="is-success" style="margin-top: 1rem;" >Inline</b-switch>
       </div>
 
       <b-field :label="'Field ' + (index + 1) + ' value'" class="field-value">
-        <b-input v-model="field.value" type="textarea" :disabled="field.name == ''"></b-input>
+        <b-input v-model="field.value" type="textarea" :disabled="field.name == ''" maxlength="1024"></b-input>
       </b-field>
 
       <div class="buttons btn-group">

@@ -20,7 +20,7 @@
       </a>
     </div>
     <div class="card-content">
-      <DiscordEmbedField/>
+      <DiscordEmbedField :v="v"/>
     </div>
   </b-collapse>
 </template>
@@ -29,7 +29,7 @@
 import DiscordEmbedField from '@/components/Form/DiscordEmbedField'
 export default {
   name: "FieldSettings",
-  props: ["open"],
+  props: ["open", "v"],
   components: {DiscordEmbedField},
   methods: {
     onClickButton(event) {

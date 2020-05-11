@@ -19,19 +19,35 @@
       </a>
     </div>
     <div class="card-content">
-      <b-field label="Title" :type="$v.title.$invalid ? 'is-danger' : ''" :message="$v.title.$invalid ? 'Title can only be 256 characters' : ''">
-        <b-input v-model="title"  maxlength="256"></b-input>
+      <b-field
+        label="Title"
+        :type="v.embed.title.$invalid ? 'is-danger' : ''"
+        :message="v.embed.title.$invalid ? 'Title can only be 256 characters' : ''"
+        
+      >
+        <b-input v-model="title" maxlength="256" ></b-input>
       </b-field>
 
-      <b-field label="Description">
-        <b-input v-model="description" type="textarea"></b-input>
+      <b-field
+        label="Description"
+        :type="v.embed.description.$invalid ? 'is-danger' : ''"
+        :message="v.embed.description.$invalid ? 'Description can only be 2048 characters' : ''"
+      >
+        <b-input v-model="description" type="textarea" maxlength="2048"></b-input>
       </b-field>
 
-      <b-field label="Url">
+      <b-field
+        label="Url"
+        :type="v.embed.url.$invalid ? 'is-danger' : ''"
+        :message="v.embed.url.$invalid ? 'Invalid URL, only https is supported.' : ''"
+      >
         <b-input v-model="url"></b-input>
       </b-field>
 
-      <b-field>
+      <b-field
+        :type="v.embed.thumb_url.$invalid ? 'is-danger' : ''"
+        :message="v.embed.thumb_url.$invalid ? 'Invalid URL, only https is supported.' : ''"
+      >
         <template slot="label">
           Thumbnail URL
           <b-tooltip
@@ -68,15 +84,11 @@
 import { mapFields } from "vuex-map-fields";
 import VSwatches from "vue-swatches";
 import "vue-swatches/dist/vue-swatches.css";
-import { maxLength } from "vuelidate/lib/validators";
 
 export default {
   name: "MainForm",
   components: { VSwatches },
   computed: {
-    // When using nested data structures, the string
-    // after the last dot (e.g. `firstName`) is used
-    // for defining the name of the computed property.
     ...mapFields([
       "embed.title",
       "embed.url",
@@ -85,17 +97,12 @@ export default {
       "embed.thumb_url"
     ])
   },
-  props: ["open"],
+  props: ["open", "v"],
   methods: {
     onClickButton(event) {
       this.$emit("clicked", "basicSettings", event);
     }
   },
-  validations: {
-    title: {
-      maxLength: maxLength(256)
-    }
-  }
 };
 </script>
 <style>
