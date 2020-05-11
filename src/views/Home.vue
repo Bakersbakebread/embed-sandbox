@@ -9,8 +9,7 @@
         <FieldSettings :open="collapseIdOpen == 'fieldSettings'" @clicked="childCollapseClicked" />
       </div>
       <div class="column">
-        <DiscordEmbed :remainingCharacters="totalCharacters"/>
-        <!-- <CodePreview /> -->
+        <DiscordEmbed :remainingCharacters="totalCharacters" />
       </div>
     </div>
   </div>
@@ -59,7 +58,7 @@ export default {
       var fieldsDescSum = this.embed.fields
         .map(element => element.value.length)
         .reduce((a, b) => a + b, 0);
-      
+
       var lengths = [
         this.embed.description.length,
         this.embed.title.length,
@@ -76,4 +75,7 @@ export default {
 </script>
 
 <style>
+.wumpus {
+  width: 400px;
+}
 </style>
