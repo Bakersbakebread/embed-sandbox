@@ -15,7 +15,6 @@
     <div v-if="!errors && characters != 0 && errors != undefined">
       <CodeBlock language="Json" :sourceCode="prettyPrintedJson" />
       <CodeBlock language="Python" :sourceCode="prettyPrintedPython" />
-      <CodeBlock />
     </div>
     <section v-else class="has-text-centered">
       <div
