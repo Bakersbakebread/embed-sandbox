@@ -97,6 +97,9 @@ export default {
       footer:{
         icon_url:{
           httpsUrlRegex
+        },
+        text: {
+          maxLength : maxLength(2048)
         }
       }
     }

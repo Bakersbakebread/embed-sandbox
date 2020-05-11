@@ -20,8 +20,10 @@
       </a>
     </div>
     <div class="card-content">
-      <b-field label="Footer text">
-        <b-input v-model="text"></b-input>
+      <b-field
+        label="Footer text"
+      >
+        <b-input v-model="text" maxlength="2048"></b-input>
       </b-field>
 
       <b-field
