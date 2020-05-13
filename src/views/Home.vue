@@ -47,6 +47,7 @@ export default {
   data() {
     return {
       collapseIdOpen: "",
+      isWebhookMode: false,
       maxCharactersAllowed: 6000
     };
   },
@@ -56,7 +57,7 @@ export default {
     DiscordEmbed,
     AuthorSettings,
     FieldSettings,
-    FooterSettings
+    FooterSettings,
     // CodePreview
   },
   methods: {

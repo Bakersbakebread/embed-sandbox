@@ -2,10 +2,14 @@
   <div class="card">
     <div class="card-header">
       <p class="card-header-title">Embed Preview</p>
-      <router-link class="card-header-icon" :to="{name: 'Code preview', params: {errors: v.embed.$invalid, characters: remainingCharacters} }">
-        <b-icon icon="code-tags"></b-icon>
-        <span>View as code</span>
-      </router-link>
+      <p
+        :class="characterLimitColor"
+        style="justify-content: flex-end !important; padding: 0.5rem;"
+      >
+        {{remainingCharacters}} / 6000 characters
+        <b-icon icon="information" type="is-warning" v-if="characterLimitIcon == 'warning'"></b-icon>
+        <b-icon icon="information" type="is-danger" v-if="characterLimitIcon == 'danger'"></b-icon>
+      </p>
     </div>
     <div class="card-content">
       <div class="wrapper" style="margin: 0 auto;">
@@ -41,7 +45,10 @@
                 </div>
               </div>
 
-              <div class="embed-footer" v-if="isValidProperty(embed.footer.text, v.embed.footer.text)">
+              <div
+                class="embed-footer"
+                v-if="isValidProperty(embed.footer.text, v.embed.footer.text)"
+              >
                 <img
                   class="embed-footer-icon"
                   :src="embed.footer.icon_url"
@@ -51,21 +58,27 @@
               </div>
             </div>
 
-            <img class="embed-thumb" :src="embed.thumb_url" v-if="isValidProperty(embed.thumb_url, v.embed.thumb_url)" />
+            <img
+              class="embed-thumb"
+              :src="embed.thumb_url"
+              v-if="isValidProperty(embed.thumb_url, v.embed.thumb_url)"
+            />
           </div>
         </div>
       </div>
     </div>
     <footer class="card-footer">
-      <p
+      <router-link
         class="card-footer-item"
-        :class="characterLimitColor"
-        style="justify-content: flex-end !important;"
+        :to="{name: 'Code preview', params: {errors: v.embed.$invalid, characters: remainingCharacters} }"
       >
-        {{remainingCharacters}} / 6000 characters
-        <b-icon icon="information" type="is-warning" v-if="characterLimitIcon == 'warning'"></b-icon>
-        <b-icon icon="information" type="is-danger" v-if="characterLimitIcon == 'danger'"></b-icon>
-      </p>
+        <b-icon icon="code-tags"></b-icon>
+        <span class="ml1">View as code</span>
+      </router-link>
+      <a class="card-footer-item" @click="toggleSidebar()">
+        <b-icon icon="cube-send"></b-icon>
+        <span class="ml1">Send as webhook</span>
+      </a>
     </footer>
   </div>
 </template>
@@ -103,7 +116,21 @@ export default {
     getFieldWidth,
     isValidProperty(property, validatedProperty) {
       return property && !validatedProperty.$invalid;
+    },
+    toggleSidebar() {
+      this.$store.commit("toggleSidebar");
     }
   }
 };
 </script>
+
+<style scoped lang="scss">
+.ml1 {
+  margin-left: 0.75rem;
+}
+.card-footer-item {
+  &:hover {
+    background: rgba(114, 137, 218, 1);
+  }
+}
+</style>

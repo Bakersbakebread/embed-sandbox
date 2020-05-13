@@ -6,7 +6,7 @@
 
 .site-content {
     flex: 1;
-    z-index: 9999;
+    z-index: 40;
 }
 
 // Set your colors
@@ -78,4 +78,15 @@ $button-text-hover-background-color: $primary;
 $button-text-hover-color: #fff;
 .button.is-text {
     text-decoration: none !important;
+}
+
+//sidebar
+.b-sidebar .sidebar-content {
+    width: 600px !important;
+}
+
+@media screen and (max-width: 600px) {
+    .b-sidebar .sidebar-content {
+        width: 100vw !important;
+    }
 }
