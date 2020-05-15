@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="site">
     <CloudsBackground />
+    <SidebarWebhook />
     <main class="site-content">
       <vue-page-transition name="zoom">
         <router-view />
@@ -15,14 +16,16 @@
 import TopNavBar from "@/components/Layout/TopNavBar";
 import Footer from "@/components/Layout/Footer";
 import CloudsBackground from "@/components/Layout/CloudsBackground";
+import SidebarWebhook from "@/components/Layout/SidebarWebhook";
 
 export default {
   name: "App",
   components: {
     TopNavBar,
     Footer,
-    CloudsBackground
-  }
+    CloudsBackground,
+    SidebarWebhook
+  },
 };
 </script>
 <style lang="scss">

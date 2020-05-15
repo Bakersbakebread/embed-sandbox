@@ -9,7 +9,9 @@ import VueSimpleMarkdown from 'vue-simple-markdown';
 import VueHighlightJS from 'vue-highlightjs';
 import VueClipboard from 'vue-clipboard2';
 import Vuelidate from 'vuelidate';
+import VueCarousel from 'vue-carousel';
 
+Vue.use(VueCarousel);
 Vue.use(Vuelidate)
 Vue.use(VueClipboard)
 Vue.use(VueHighlightJS)
