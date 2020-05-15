@@ -74,9 +74,7 @@ export default {
       return JSON.stringify(this.embed, removeEmptyStrings, 4);
     },
     prettyPrintedPython() {
-      var pythonCode = getPythonPrettyPrinted(this.embed);
-      let printed = pythonCode;
-      return printed;
+      return getPythonPrettyPrinted(this.embed);
     },
   }
 };

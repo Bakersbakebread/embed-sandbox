@@ -1,5 +1,4 @@
 export function getFieldWidth(field, fieldIndex) {
-    console.log("starting...");
     const FIELD_GRID_SIZE = 12;
     const MAX_FIELDS_PER_ROW = 3;
 
