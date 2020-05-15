@@ -6,7 +6,7 @@ import VuexPersistence from 'vuex-persist';
 const vuexLocal = new VuexPersistence({
     storage: window.localStorage,
     reducer: (state) => ({ 'webhooks': state.webhooks }),
-    filter: (mutation) => mutation.type == 'appendWebhook' || mutation.type == 'deleteWebhook'
+    filter: (mutation) => mutation.type == 'appendWebhook' || mutation.type == 'deleteWebhook' || mutation.type == 'initWebhooks'
 })
 
 console.log(vuexLocal)

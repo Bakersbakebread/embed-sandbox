@@ -6,7 +6,8 @@
       :fullwidth="false"
       :overlay="true"
       :right="true"
-      :open.sync="sidebarState"
+      :open="sidebarState"
+      :can-cancel="false"
     >
       <div class="wrapper">
         <header>Webhook settings</header>
@@ -19,12 +20,14 @@
         ></b-button>
         <b-button
           class="close-icon is-hidden-desktop"
-          type="is-light is-outlined"
+          type="is-light is-outlined is-small"
           icon-left="close"
           @click="toggleSidebar()"
         >Close webhook settings</b-button>
 
-        <div class="content"><WebhookForm/></div>
+        <div class="content">
+          <WebhookForm />
+        </div>
       </div>
     </b-sidebar>
   </section>
@@ -62,6 +65,8 @@ $discord-bg-secondary-alt: #292b2f;
 
 .wrapper {
   display: grid;
+  width: 100%;
+  grid-template-rows: min-content 1fr;
   grid-template-areas:
     "header header close"
     "content content content";
@@ -74,7 +79,7 @@ header {
 }
 .close-icon {
   grid-area: close;
-  align-self: center;
+  align-self: end;
 }
 .content {
   grid-area: content;
@@ -84,7 +89,7 @@ header {
   .wrapper {
     height: 100%;
     padding: 1rem;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: min-content 1fr min-content;
     grid-template-areas:
       "header header"
       "content content"
@@ -95,11 +100,10 @@ header {
     text-align: center;
   }
   .content {
+    position: relative;
   }
   .close-icon {
     grid-area: close;
-    display: flex;
-    justify-content: center;
   }
 }
 </style>
