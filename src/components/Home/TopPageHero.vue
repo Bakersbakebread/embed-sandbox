@@ -5,8 +5,7 @@
     </h1>
     
     <p class="subtitle has-text-centered">
-      Generate your embeds, play around with how they look - even send them straight to a channel via
-      <router-link to="/about">webhook.</router-link>
+      Generate your embeds, play around with how they look - even send them straight to a channel via webhook.
     </p>
   </section>
 </template>
